@@ -8,7 +8,8 @@ general {
 		color_bad = '#ba5e57'
 }
 
-order += "load"
+order += "cpu_usage"
+order += "memory"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "disk /home"
@@ -18,12 +19,16 @@ order += "volume master"
 order += "battery 1"
 order += "tztime local"
 
-load {
-        format = "<span background='#f59335'>  %5min Load </span>"
+cpu_usage {
+        format = "<span background='#f59335'>  %usage CPU</span>"
+}
+
+memory {
+        format = "<span background='#f59390'> ⌬ %percentage_used RAM</span>"
 }
 
 cpu_temperature 0 {
-        format = "<span background='#bf616a'>  %degrees °C </span>"
+        format = "<span background='#bf9780'>  %degrees °C </span>"
         path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
